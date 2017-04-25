@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAuxTasksTable extends Migration
+class CreateAuxZonesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,13 +14,11 @@ class CreateAuxTasksTable extends Migration
     public function up()
     {
         //
-        Schema::create('aux_tasks', function (Blueprint $table) {
+        Schema::create('aux_zones', function (Blueprint $table) {
           
-            $table->integer('id')->unsigned();
-            $table->string('task_description');
-            $table->string('task_instructions');
-
-            $table->foreign('id')->references('id')->on('tasks');
+            $table->primary('zone');
+            $table->string('locale');
+            
         });
     }
 

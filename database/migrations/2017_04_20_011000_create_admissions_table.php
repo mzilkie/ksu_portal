@@ -19,7 +19,11 @@ class CreateAdmissionsTable extends Migration
             $table->string('username')->unique();            
             $table->string('email')->unique();
             $table->string('password');
+            $table->integer('assigned_zones')->unsigned();
+            $table->timestamps('last_login');
             $table->timestamps();
+
+            $table->foreign('assigned_zones')->references('zone')->on('aux_zones');
         });
     }
 

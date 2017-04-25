@@ -19,6 +19,11 @@ class CreateStudentworkersTable extends Migration
             $table->string('username')->unique();            
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('work_schedule');
+            $table->boolean('status');
+            $table->string('major');
+            $table->string('academic_year');
+            $table->timeestamps('last_login');
             $table->timestamps();
         });
     }

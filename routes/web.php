@@ -12,7 +12,7 @@
 */
 Route::get('/', 'HomeController@index');
 
-Route::post('/', 'HomeController@store');
+Route::post('/', 'HomeController@store')->name('home.store');
 
 Auth::routes();
 
