@@ -1,1 +1,0 @@
-@extends ('studentworker.layouts.app')

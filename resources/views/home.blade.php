@@ -1,20 +1,24 @@
-@extends('layouts.app')
+@extends ('layouts.app')
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+@section ('content')
 
-                <div class="panel-body">
-                    You are logged in!
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+          <button type="button" class="hamburger is-closed animated fadeInLeft" data-toggle="offcanvas">
+            <span class="hamb-top"></span>
+            <span class="hamb-middle"></span>
+            <span class="hamb-bottom"></span>
+          </button>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <h1>Working again!</h1>
+                    </div>
                 </div>
             </div>
         </div>
+        <!-- /#page-content-wrapper -->
+
     </div>
-</div>
+    <!-- /#wrapper -->
 @endsection
-
-
-// http://www.codeply.com/go/GQ1Mz8RqZB
