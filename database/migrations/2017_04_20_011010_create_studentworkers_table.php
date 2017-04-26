@@ -14,17 +14,21 @@ class CreateStudentworkersTable extends Migration
     public function up()
     {
         Schema::create('studentworkers', function (Blueprint $table) {
-            $table->primary('studentID');
-            $table->string('name');
+            $table->engine = 'InnoDB';
+
+            $table->increments('id');
+            $table->string('first_name');
             $table->string('username')->unique();            
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('work_schedule');
-            $table->boolean('status');
-            $table->string('major');
-            $table->string('academic_year');
-            $table->timeestamps('last_login');
+            $table->string('phone')->nullable();
+            $table->string('work_schedule')->nullable();
+            $table->boolean('status')->nullable();
+            $table->string('major')->nullable();
+            $table->string('academic_year')->nullable();
+            $table->timestamp('last_login')->nullable();
             $table->timestamps();
+
         });
     }
 

@@ -14,7 +14,9 @@ class CreateFormsTable extends Migration
     public function up()
     {
         Schema::create('forms', function (Blueprint $table) {
-            $table->increments('id');
+            $table->engine = 'InnoDB';
+
+            $table->increments('studentID');
             $table->string('first_name'); 
             $table->string('last_name'); 
             $table->string('street_address'); 
@@ -28,7 +30,7 @@ class CreateFormsTable extends Migration
             $table->date('birthday'); 
             $table->string('email')->unique(); 
             $table->string('secondary_school');
-            $table->timestamps('hs_grad_date')->nullable();  
+            $table->timestamp('hs_grad_date')->nullable();  
             $table->string('start_semester'); 
             $table->integer('start_year'); 
             $table->integer('college_credit'); 

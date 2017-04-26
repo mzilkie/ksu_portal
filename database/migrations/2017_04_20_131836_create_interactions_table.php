@@ -14,20 +14,20 @@ class CreateInteractionsTable extends Migration
     public function up()
     {
         Schema::create('interactions', function (Blueprint $table) {
-
-            $table->primary('interactionID');
+            $table->engine = 'InnoDB';
+            $table->increments('interactionID');
             $table->integer('studentID')->unsigned();
-            $table->string('who_contacted')->unique();
-            $table->timestamps('date_contacted');
+            $table->string('who_contacted');
+            $table->timestamp('date_contacted');
             $table->string('type');
             $table->string('location');
             $table->string('event');
             $table->string('subject');
             $table->string('notes')->nullable();
+        });
 
+        Schema::table('interactions', function($table) {
             $table->foreign('studentID')->references('studentID')->on('forms');
-
-            $table->foreign('who_contacted')->references('user_name')->on('studentworkers', 'admins', 'admissions');
         });
     }
 

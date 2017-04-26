@@ -15,10 +15,9 @@ class CreateAuxZonesTable extends Migration
     {
         //
         Schema::create('aux_zones', function (Blueprint $table) {
-          
-            $table->primary('zone');
+            $table->engine = 'InnoDB';
+            $table->increments('zone');
             $table->string('locale');
-            
         });
     }
 

@@ -15,12 +15,14 @@ class CreateAuxTasksTable extends Migration
     {
         //
         Schema::create('aux_tasks', function (Blueprint $table) {
-          
+            $table->engine = 'InnoDB';
             $table->integer('id')->unsigned();
             $table->string('task_description');
             $table->string('task_instructions');
+        });
 
-            $table->foreign('id')->references('id')->on('tasks');
+        Schema::table('aux_tasks', function($table) {
+            $table->foreign('id')->references('taskID')->on('tasks');
         });
     }
 

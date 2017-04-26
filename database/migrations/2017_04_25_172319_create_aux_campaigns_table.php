@@ -15,13 +15,12 @@ class CreateAuxCampaignsTable extends Migration
     {
         //
         Schema::create('aux_campaigns', function (Blueprint $table) {
-
-            $table->primary('campaignID');
+            $table->engine = 'InnoDB';
+            $table->increments('campaignID');
             $table->string('campaign_name');
             $table->string('campaign_description');
             $table->string('criteria');
             $table->string('criteria_code');
-
         });
     }
 

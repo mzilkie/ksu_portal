@@ -14,13 +14,16 @@ class CreateCampaignsTable extends Migration
     public function up()
     {
         Schema::create('campaigns', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->integer('campaignID');
-            $table->timestamps('run_date');
-            $table->timestamps('follow_up_date');
+            $table->integer('campaignID')->unsigned();
+            $table->timestamp('run_date');
+            $table->timestamp('follow_up_date')->nullable();
             $table->integer('userID');
             $table->string('notes')->nullable();
+        });
 
+        Schema::table('campaigns', function($table) {
             $table->foreign('campaignID')->references('campaignID')->on('aux_campaigns')->onDelete('cascade');
         });
     }

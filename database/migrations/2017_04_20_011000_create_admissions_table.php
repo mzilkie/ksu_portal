@@ -14,15 +14,21 @@ class CreateAdmissionsTable extends Migration
     public function up()
     {
         Schema::create('admissions', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('name');
+            $table->string('first_name');
+            $table->string('last_name');
             $table->string('username')->unique();            
             $table->string('email')->unique();
             $table->string('password');
+            $table->boolean('active')->nullable();
+            $table->string('phone')->nullable();
             $table->integer('assigned_zones')->unsigned();
-            $table->timestamps('last_login');
+            $table->timestamp('last_login')->nullable();
             $table->timestamps();
+        });
 
+        Schema::table('admissions', function($table) {
             $table->foreign('assigned_zones')->references('zone')->on('aux_zones');
         });
     }
