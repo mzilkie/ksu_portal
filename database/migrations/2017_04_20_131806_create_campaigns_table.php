@@ -23,9 +23,9 @@ class CreateCampaignsTable extends Migration
             $table->string('notes')->nullable();
         });
 
-        Schema::table('campaigns', function($table) {
-            $table->foreign('campaignID')->references('campaignID')->on('aux_campaigns')->onDelete('cascade');
-        });
+        // Schema::table('campaigns', function($table) {
+        //     $table->foreign('campaignID')->references('campaignID')->on('aux_campaigns')->onDelete('cascade');
+        // });
     }
 
     /**

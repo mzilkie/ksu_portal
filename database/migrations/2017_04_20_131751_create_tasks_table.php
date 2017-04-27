@@ -26,9 +26,9 @@ class CreateTasksTable extends Migration
             $table->timestamps('date_assigned');
         });
 
-        Schema::table('tasks', function($table) {
-            $table->foreign('studentID')->references('id')->on('studentworkers');
-        });
+        // Schema::table('tasks', function($table) {
+        //     $table->foreign('studentID')->references('id')->on('studentworkers');
+        // });
     }
 
     /**

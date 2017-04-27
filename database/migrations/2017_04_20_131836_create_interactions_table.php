@@ -26,9 +26,9 @@ class CreateInteractionsTable extends Migration
             $table->string('notes')->nullable();
         });
 
-        Schema::table('interactions', function($table) {
-            $table->foreign('studentID')->references('studentID')->on('forms');
-        });
+        // Schema::table('interactions', function($table) {
+        //     $table->foreign('studentID')->references('studentID')->on('forms');
+        // });
     }
 
     /**

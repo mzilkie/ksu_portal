@@ -9,7 +9,6 @@ class Form extends Model
     //
     protected $guarded = [
         'id', 
-        'username', 
         'created_at', 
         'published_at'
     ];

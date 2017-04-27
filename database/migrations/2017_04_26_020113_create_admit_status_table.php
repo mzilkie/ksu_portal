@@ -16,15 +16,16 @@ class CreateAdmitStatusTable extends Migration
         //
         Schema::create('admit_status', function (Blueprint $table) {
             $table->engine = 'InnoDB';          
-            $table->integer('admitStatus')->unsigned();
+            $table->integer('id')->unsigned();
             $table->integer('studentID')->unsigned();
+            $table->string('admitStatus');
             $table->timestamp('admit_date');            
-            $table->primary(['admitStatus', 'studentID']);
+            $table->primary(['id', 'studentID']);
         });
 
-        Schema::table('admit_status', function($table) {
-            $table->foreign('studentID')->references('studentID')->on('forms');
-        });
+        // Schema::table('admit_status', function($table) {
+        //     $table->foreign('studentID')->references('studentID')->on('forms');
+        // });
     }
 
     /**

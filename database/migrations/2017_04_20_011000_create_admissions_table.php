@@ -28,9 +28,9 @@ class CreateAdmissionsTable extends Migration
             $table->timestamps();
         });
 
-        Schema::table('admissions', function($table) {
-            $table->foreign('assigned_zones')->references('zone')->on('aux_zones');
-        });
+        // Schema::table('admissions', function($table) {
+        //     $table->foreign('assigned_zones')->references('zone')->on('aux_zones');
+        // });
     }
 
     /**

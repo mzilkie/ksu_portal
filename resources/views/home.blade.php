@@ -122,6 +122,7 @@
 
                     <!--Body-->
 					<form method="POST" action="{{ route('home.store') }}">
+                    {{ csrf_field() }}
 					<div class="row">
 					
 						<div class="col-lg-6">
@@ -181,7 +182,7 @@
 						<div class="col-lg-6">
 					
 							<div class="md-form">
-								<input type="text" id="state" name="last_name" class="form-control">
+								<input type="text" id="state" name="state" class="form-control">
 								<label for="state">State</label>
 							</div>
 
@@ -198,7 +199,7 @@
 					
 							<div class="md-form">
 								<i class="fa prefix purple-text"></i>
-								<input type="text" id="zipcode" name="zipcode" class="form-control">
+								<input type="number" id="zipcode" name="zipcode" class="form-control">
 								<label for="zipcode">Zip Code/ Postal</label>
 							</div>
 					
@@ -224,7 +225,7 @@
 					
 							<div class="md-form">
 								<i class="fa prefix purple-text"></i>
-								<label for="gender">Gender</label>
+								<label for="sex">Gender</label>
 							</div>
 					
 						</div>
@@ -233,7 +234,7 @@
 					
 							<div class="md-form">
                                 <i class="fa fa-male prefix purple-text"></i>
-								<input type="radio" id="gender" name="gender" class="form-control">
+								<input type="radio" id="sex" name="sex" class="form-control" value="male">
 							</div>
 
 						</div>
@@ -242,7 +243,7 @@
 					
 							<div class="md-form">
                                 <i class="fa fa-female prefix purple-text"></i>
-								<input type="radio" id="gender" name="gender" class="form-control">
+								<input type="radio" id="sex" name="sex" class="form-control" value="female">
 							</div>
 
 						</div>
@@ -263,7 +264,7 @@
                     
                     <div class="md-form">
                         <i class="fa fa-mobile prefix purple-text"></i>
-                        <input type="text" id="phone" name="phone" class="form-control">
+                        <input type="tel" id="phone" name="phone" class="form-control">
                         <label for="phone">Phone</label>
                     </div>
                     
@@ -293,7 +294,7 @@
 						<div class="col-lg-3">
 					
 							<div class="md-form">
-								<input type="radio" id="secondary_school" name="secondary_school" class="form-control">
+								<input type="radio" id="secondary_school" name="secondary_school" class="form-control" value="high school">
                                 <label for="secondary_school">High School</label>
 							</div>
 
@@ -302,7 +303,7 @@
                         <div class="col-lg-3">
 					
 							<div class="md-form">
-								<input type="radio" id="secondary_school" name="secondary_school" class="form-control">
+								<input type="radio" id="secondary_school" name="secondary_school" class="form-control" value="home school">
                                 <label for="secondary_school">Home School</label>
 							</div>
 
@@ -311,7 +312,7 @@
                         <div class="col-lg-3">
 					
 							<div class="md-form">
-								<input type="radio" id="secondary_school" name="secondary_school" class="form-control">
+								<input type="radio" id="secondary_school" name="secondary_school" class="form-control" value="ged">
                                 <label for="secondary_school">GED</label>
 							</div>
 
@@ -331,11 +332,28 @@
                     <br>
                     <br>
                     
-                    <div class="md-form">
-                        <i class="fa fa-calendar-o prefix purple-text"></i>
-                        <input type="text" id="entry_date" name="entry_date" class="form-control">
-                        <label for="entry_date">Expected Entry Date</label>
-                    </div>
+                    <div class="row">
+					
+						<div class="col-lg-6">
+					
+							<div class="md-form">
+								<i class="fa fa-calendar prefix purple-text"></i>
+								<input type="text" id="start_semester" name="start_semester" class="form-control">
+								<label for="start_semester">Start Semester</label>
+							</div>
+					
+						</div>
+						
+						<div class="col-lg-6">
+					
+							<div class="md-form">
+								<input type="number" id="start_year" name="start_year" class="form-control">
+								<label for="start_year">Start Year</label>
+							</div>
+
+						</div>
+						
+					</div>
                     
                     <br>
                     <br>
@@ -355,7 +373,7 @@
 					
 							<div class="md-form">
                                 <fieldset class="form-group">
-                                    <input type="radio" id="college_credit" name="college_credit" class="form-control">
+                                    <input type="radio" id="college_credit" name="college_credit" class="form-control" value="true">
                                     <label for="college_credit">Yes</label>
                                 </fieldset>
 							</div>
@@ -366,7 +384,7 @@
 					
 							<div class="md-form">
                                 <fieldset class="form-group">
-                                    <input type="radio" id="college_credit" name="college_credit" class="form-control">
+                                    <input type="radio" id="college_credit" name="college_credit" class="form-control" value="false">
                                     <label for="college_credit">No</label>
                                 </fieldset>
 							</div>
@@ -391,7 +409,7 @@
                     <div class="md-form">  
                         <i class="fa fa-check prefix purple-text"></i>
                         <label>Primay Major of Interest</label>
-                        <select class="browser-default">
+                        <select class="browser-default" name="primary_major">
                             <option value="">  </option>
                             <option value="Airport Management"> Airport Management </option>
                             <option value="Applied Business"> Applied Business </option>
@@ -419,7 +437,7 @@
                     <div class="md-form">  
                         <i class="fa fa-check prefix purple-text"></i>
                         <label>Secondary Major of Interest</label>
-                        <select class="browser-default">
+                        <select class="browser-default" name="secondary_major">
                             <option value="">  </option>
                             <option value="Airport Management"> Airport Management </option>
                             <option value="Applied Business"> Applied Business </option>
@@ -456,7 +474,7 @@
                     <div class="md-form">  
                         <i class="fa fa-comment prefix purple-text"></i>
                         <label>How Did You Hear About Us</label>
-                        <select class="browser-default">
+                        <select class="browser-default" name="hear_about_us">
                             <option value="">  </option>
                             <option value="Google/Internet Search"> Google/Internet Search </option>
                             <option value="Postcard and/or Brochure"> Postcard and/or Brochure </option>
@@ -485,7 +503,7 @@
                     <div class="md-form">  
                         <i class="fa fa-terminal prefix purple-text"></i>
                         <label>How Do You Preferred To Be Contacted?</label>
-                        <select class="browser-default">
+                        <select class="browser-default" name="contact">
                              <option value="">  </option>
                              <option value="E-mail"> E-mail </option>
                              <option value="Phone"> Phone </option>
@@ -498,9 +516,9 @@
                     <br>
                     
                     <div class="text-center">
-                        <button class="btn btn-purple">Submit</button>
+                        <button class="btn btn-purple" type="submit">Submit</button>
                     </div>
-</form>
+                </form>
                 </div>
                 
             </div>

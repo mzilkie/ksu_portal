@@ -21,9 +21,9 @@ class CreateAuxTasksTable extends Migration
             $table->string('task_instructions');
         });
 
-        Schema::table('aux_tasks', function($table) {
-            $table->foreign('id')->references('taskID')->on('tasks');
-        });
+        // Schema::table('aux_tasks', function($table) {
+        //     $table->foreign('id')->references('taskID')->on('tasks');
+        // });
     }
 
     /**

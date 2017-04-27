@@ -25,9 +25,9 @@ class CreateToursTable extends Migration
             $table->boolean('individualTour');
         });
 
-        Schema::table('tours', function($table) {
-            $table->foreign('interactionID')->references('interactionID')->on('interactions');
-        });
+        // Schema::table('tours', function($table) {
+        //     $table->foreign('interactionID')->references('interactionID')->on('interactions');
+        // });
     }
 
     /**
