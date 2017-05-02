@@ -57,12 +57,9 @@ class HomeController extends Controller
         // ] );
 
         $data = $request->all();
+        
         Form::create($data);
 
-
-        //$data->save();
-
-
-        return redirect('/');
+        return redirect('home');
     }
 }
